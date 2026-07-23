@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b0r1qo0hlpomc"]
+
+[ext_resource type="Script" uid="uid://d27733vl0le7e" path="res://snake_game/gameplay/game_play.gd" id="1_kmh1p"]
+[ext_resource type="PackedScene" uid="uid://cgqa3akue68cb" path="res://snake_game/gameplay/head.tscn" id="2_m4txo"]
+
+[node name="GamePlay" type="Node2D" unique_id=55846490]
+script = ExtResource("1_kmh1p")
+
+[node name="Head" parent="." unique_id=1518045866 instance=ExtResource("2_m4txo")]
+unique_name_in_owner = true
+position = Vector2(544, 288)
