@@ -2,10 +2,11 @@ class_name GamePlay
 extends Node2D
 
 @onready var head: Head = %Head as Head
+@onready var bounds: Bounds = %Bounds
 
 var time_between_moves : float = 1000.0
 var time_since_last_move : float = 0
-var speed : float = 1000.0
+var speed : float = 10000.0
 var move_dir: Vector2 = Vector2.RIGHT
 
 # Called when the node enters the scene tree for the first time.
@@ -31,8 +32,7 @@ func _physics_process(delta: float) -> void:
 		time_since_last_move = 0
 
 func update_snake():
-	print("move the snake")
 	var new_pos : Vector2 = head.position + move_dir * Global.grid_size
+	new_pos = bounds.wrap_vector(new_pos)
 	head.move_to(new_pos)
-	pass
 	
