@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgqa3akue68cb"]
 
 [ext_resource type="Script" uid="uid://b1asonaoacbpy" path="res://snake_game/gameplay/head.gd" id="1_8okvd"]
-[ext_resource type="Texture2D" uid="uid://daue8red7rvn2" path="res://snake_game/gameplay/sprites/Snsnake.png" id="2_8okvd"]
+[ext_resource type="Texture2D" uid="uid://cqu2rffx3fylv" path="res://snake_game/gameplay/sprites/Snsnake tail.png" id="2_8okvd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rrkxy"]
 

@@ -9,11 +9,15 @@ var time_between_moves : float = 1000.0
 var time_since_last_move : float = 0
 var speed : float = 10000.0
 var move_dir: Vector2 = Vector2.RIGHT
+var snake_parts : Array[SnakePart] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	head.food_eaten.connect(_on_food_eaten)
+	head.collided_with_tail.connect(_on_tail_collided)
+	spawner.tail_added.connect(_on_tail_added)
 	spawner.spawn_food()
+	snake_parts.push_back(head)
 	pass # Replace with function body.
 
 
@@ -38,7 +42,18 @@ func update_snake():
 	var new_pos : Vector2 = head.position + move_dir * Global.grid_size
 	new_pos = bounds.wrap_vector(new_pos)
 	head.move_to(new_pos)
+	for i in range(1,snake_parts.size(),1):
+		snake_parts[i].move_to(snake_parts[i-1].last_position)
+		
+		
 	
 func _on_food_eaten():
 	spawner.call_deferred("spawn_food")
-	
+	spawner.call_deferred("spawn_tail", snake_parts[snake_parts.size()-1].last_position)
+	speed += 250
+
+func _on_tail_added(tail: Tail):
+	snake_parts.push_back(tail)
+
+func _on_tail_collided():
+	print("game over")

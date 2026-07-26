@@ -1,9 +1,11 @@
 class_name Spawner 
 extends Node2D
 
-@export var bounds: Bounds
-var food_scene:PackedScene	 = preload("res://snake_game/gameplay/food.tscn")
+signal tail_added(tail: Tail	)
 
+@export var bounds: Bounds
+var food_scene:PackedScene = preload("res://snake_game/gameplay/food.tscn")
+var tail_scene: PackedScene = preload("res://snake_game/gameplay/tail.tscn")
 
 func spawn_food():
 	var spawn_point : Vector2 = Vector2.ZERO
@@ -15,3 +17,9 @@ func spawn_food():
 	food.position = spawn_point
 	get_parent().add_child(food)
 	 
+
+func spawn_tail(pos: Vector2):
+	var tail: Tail = tail_scene.instantiate() as Tail
+	tail.position = pos
+	get_parent().add_child(tail)
+	tail_added.emit(tail)

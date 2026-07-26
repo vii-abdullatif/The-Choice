@@ -1,21 +1,22 @@
 [gd_scene format=3 uid="uid://dkl3f7q5ahkta"]
 
 [ext_resource type="Script" uid="uid://cqjy0vvjw583a" path="res://snake_game/gameplay/tail.gd" id="1_mylbl"]
-[ext_resource type="Texture2D" uid="uid://ci840cckecki3" path="res://snake_game/gameplay/sprites/snake.png" id="2_ukmkf"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_64aax"]
-atlas = ExtResource("2_ukmkf")
-region = Rect2(11, 22, 9, 8)
+[ext_resource type="Texture2D" uid="uid://daue8red7rvn2" path="res://snake_game/gameplay/sprites/Snsnake.png" id="2_mylbl"]
+[ext_resource type="Texture2D" uid="uid://c0rnd5o3375o8" path="res://snake_game/gameplay/sprites/Snsnake2.png" id="3_g7b5m"]
+[ext_resource type="Texture2D" uid="uid://ue786uy2ickj" path="res://snake_game/gameplay/sprites/Snsake3.png" id="4_wthy4"]
+[ext_resource type="Texture2D" uid="uid://bl32lies5aofs" path="res://snake_game/gameplay/sprites/Snsnake5.png" id="5_wthy4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2kpcq"]
 
 [node name="Tail" type="Area2D" unique_id=702575468]
 script = ExtResource("1_mylbl")
+textures = Array[Texture]([ExtResource("2_mylbl"), ExtResource("3_g7b5m"), ExtResource("4_wthy4"), ExtResource("5_wthy4")])
 metadata/_custom_type_script = "uid://d16ym5fjjalde"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1073123343]
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_64aax")
+position = Vector2(0, 4)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_mylbl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=225679197]
 shape = SubResource("CircleShape2D_2kpcq")
