@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://fgb4hidm1ufg"]
+
+[ext_resource type="Texture2D" uid="uid://bkdekihsncxve" path="res://snake_game/gameplay/sprites/FRUITS-tiles.png" id="1_7h450"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvnsn"]
+atlas = ExtResource("1_7h450")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5i5nd"]
+
+[node name="Food" type="Area2D" unique_id=2128327998 groups=["food"]]
+scale = Vector2(1.25, 1.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1735358284]
+scale = Vector2(1.4999999, 1.4999999)
+texture = SubResource("AtlasTexture_kvnsn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481189910]
+shape = SubResource("CircleShape2D_5i5nd")
