@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://41bc3ob3puv"]
+
+[ext_resource type="Script" uid="uid://cta8y8nr81vw8" path="res://snake_game/menus/hud.gd" id="1_p7ptr"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1325563464]
+script = ExtResource("1_p7ptr")
+
+[node name="Panel" type="Panel" parent="." unique_id=296284634]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=892520038]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer" unique_id=1393970557]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Score" type="Label" parent="Panel/HBoxContainer/MarginContainer" unique_id=730193871]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "Score: 0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer" unique_id=248966531]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HighScore" type="Label" parent="Panel/HBoxContainer/MarginContainer2" unique_id=645518816]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "HighScore: 0"

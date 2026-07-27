@@ -8,6 +8,12 @@ extends CanvasLayer
 
 func set_score(n : int):
 	score.text = "Final Score: " + str(n)
+	if n > Global.save_data.high_score:
+		high_score.visible = true
+		Global.save_data.high_score = n
+		Global.save_data.save()
+	else:
+		high_score.visible = false
 
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()

@@ -7,7 +7,7 @@ const gameplay_scene: PackedScene = preload("res://snake_game/gameplay/game_play
 @onready var quit: Button = %QuitButton
 
 func _ready() -> void:
-	var high_score : int = 0
+	var high_score : int = Global.save_data.high_score
 	score.text = "High Score: " + str(high_score)
 
 func _on_start_button_pressed() -> void:
