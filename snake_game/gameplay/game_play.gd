@@ -23,7 +23,6 @@ var score : int:
 		score = value
 		hud.update_score(value)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	head.food_eaten.connect(_on_food_eaten)
 	head.collided_with_tail.connect(_on_tail_collided)
@@ -31,10 +30,9 @@ func _ready() -> void:
 	time_since_last_move = time_between_moves
 	spawner.spawn_food()
 	snake_parts.push_back(head)
-	pass # Replace with function body.
+	head.bonus_eaten.connect(_on_bonus_eaten)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var new_dir : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
@@ -70,6 +68,13 @@ func _on_food_eaten():
 	spawner.call_deferred("spawn_tail", snake_parts[snake_parts.size()-1].last_position)
 	speed += 250
 	score += 1 
+	if score % 10 == 0:
+		spawner.call_deferred("spawn_bonus")
+
+func _on_bonus_eaten():
+	speed += 550
+	score += 5 
+
 
 func _on_tail_added(tail: Tail):
 	snake_parts.push_back(tail)

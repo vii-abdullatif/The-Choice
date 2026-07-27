@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://chcj72wt1k81k"]
+
+[ext_resource type="Texture2D" uid="uid://bkdekihsncxve" path="res://snake_game/gameplay/sprites/FRUITS-tiles.png" id="1_4tft2"]
+[ext_resource type="Script" uid="uid://b26min8i3ujs6" path="res://snake_game/gameplay/bonus.gd" id="1_6wwxg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tygl7"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(1, 17, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o7wn"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37xq3"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa5gg"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx737"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4oh3"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngi1s"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqssp"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mt7w"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73lmf"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wwxg"]
+atlas = ExtResource("1_4tft2")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wwxg"]
+
+[node name="Bonus" type="Area2D" unique_id=650701663 groups=["bonus"]]
+script = ExtResource("1_6wwxg")
+textures = Array[Texture]([SubResource("AtlasTexture_tygl7"), SubResource("AtlasTexture_8o7wn"), SubResource("AtlasTexture_37xq3"), SubResource("AtlasTexture_xa5gg"), SubResource("AtlasTexture_hx737"), SubResource("AtlasTexture_t4oh3"), SubResource("AtlasTexture_ngi1s"), SubResource("AtlasTexture_eqssp"), SubResource("AtlasTexture_0mt7w"), SubResource("AtlasTexture_73lmf")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=833946552]
+scale = Vector2(1.6, 1.6)
+texture = SubResource("AtlasTexture_6wwxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465622344]
+shape = SubResource("CircleShape2D_6wwxg")
