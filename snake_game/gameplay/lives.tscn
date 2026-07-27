@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b8idjtwrsp6kr"]
+
+[ext_resource type="Script" uid="uid://dap8v2dtrrf7w" path="res://snake_game/gameplay/lives.gd" id="1_3ndfw"]
+[ext_resource type="Texture2D" uid="uid://xqfoa7g0a23y" path="res://snake_game/gameplay/sprites/life1.png" id="1_t24ex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ndfw"]
+atlas = ExtResource("1_t24ex")
+region = Rect2(4, 8, 17, 15)
+
+[node name="Lives" type="Node2D" unique_id=1425937402]
+script = ExtResource("1_3ndfw")
+
+[node name="Life1" type="Sprite2D" parent="." unique_id=482621174]
+position = Vector2(23.637249, 23.5)
+scale = Vector2(2.780853, 3.1333334)
+texture = SubResource("AtlasTexture_3ndfw")
+
+[node name="Life2" type="Sprite2D" parent="." unique_id=1279148033]
+position = Vector2(87.63725, 23.5)
+scale = Vector2(2.7808535, 3.1333334)
+texture = SubResource("AtlasTexture_3ndfw")
+
+[node name="Life3" type="Sprite2D" parent="." unique_id=872802461]
+position = Vector2(151.63725, 23.5)
+scale = Vector2(2.780853, 3.1333334)
+texture = SubResource("AtlasTexture_3ndfw")

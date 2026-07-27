@@ -5,8 +5,20 @@
 [node name="HUD" type="CanvasLayer" unique_id=1325563464]
 script = ExtResource("1_p7ptr")
 
+[node name="Panel2" type="Panel" parent="." unique_id=1133725188]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_bottom = 40.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
 [node name="Panel" type="Panel" parent="." unique_id=296284634]
-custom_minimum_size = Vector2(0, 32)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2

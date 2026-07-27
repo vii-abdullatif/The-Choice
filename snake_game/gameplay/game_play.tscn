@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5jcwkyog70e3" path="res://snake_game/gameplay/sprites/grid2.png" id="3_n1vq2"]
 [ext_resource type="PackedScene" uid="uid://41bc3ob3puv" path="res://snake_game/menus/hud.tscn" id="6_ciaw7"]
 [ext_resource type="Script" uid="uid://tsryaew8r473" path="res://snake_game/gameplay/spawner.gd" id="6_g4e3g"]
+[ext_resource type="PackedScene" uid="uid://b8idjtwrsp6kr" path="res://snake_game/gameplay/lives.tscn" id="7_ciaw7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1vq2"]
 texture = ExtResource("3_n1vq2")
@@ -17,6 +18,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_n1vq2")
 
 [node name="GamePlay" type="Node2D" unique_id=55846490]
+y_sort_enabled = true
 script = ExtResource("1_kmh1p")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1644076661]
@@ -34,7 +36,6 @@ script = ExtResource("3_35sm3")
 
 [node name="UpperLeft" type="Marker2D" parent="Bounds" unique_id=2009078560]
 unique_name_in_owner = true
-position = Vector2(0, 32)
 
 [node name="LowerRight" type="Marker2D" parent="Bounds" unique_id=1856523845]
 unique_name_in_owner = true
@@ -45,3 +46,5 @@ script = ExtResource("6_g4e3g")
 bounds = NodePath("../Bounds")
 
 [node name="HUD" parent="." unique_id=1325563464 instance=ExtResource("6_ciaw7")]
+
+[node name="Lives" parent="." unique_id=1425937402 instance=ExtResource("7_ciaw7")]

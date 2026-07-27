@@ -75,7 +75,8 @@ func _on_tail_added(tail: Tail):
 	snake_parts.push_back(tail)
 
 func _on_tail_collided():
-	if not gameover_menu:
+	Global.lives -= 1
+	if Global.lives == 0:
 		gameover_menu = gameover_scene.instantiate() as GameOver
 		add_child(gameover_menu)
 		gameover_menu.set_score(score)
