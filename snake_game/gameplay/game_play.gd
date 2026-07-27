@@ -1,15 +1,19 @@
 class_name GamePlay
 extends Node2D
 
+const gameover_scene: PackedScene = preload("res://snake_game/menus/game_over.tscn")
+
 @onready var head: Head = %Head as Head
 @onready var bounds: Bounds = %Bounds
 @onready var spawner: Spawner = $Spawner as Spawner
 
+var gameover_menu : GameOver
 var time_between_moves : float = 1000.0
 var time_since_last_move : float = 0
 var speed : float = 10000.0
 var move_dir: Vector2 = Vector2.RIGHT
 var snake_parts : Array[SnakePart] = []
+var score : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,9 +55,14 @@ func _on_food_eaten():
 	spawner.call_deferred("spawn_food")
 	spawner.call_deferred("spawn_tail", snake_parts[snake_parts.size()-1].last_position)
 	speed += 250
+	score += 1 
 
 func _on_tail_added(tail: Tail):
 	snake_parts.push_back(tail)
 
 func _on_tail_collided():
 	print("game over")
+	if not gameover_menu:
+		gameover_menu = gameover_scene.instantiate() as GameOver
+		add_child(gameover_menu)
+		gameover_menu.set_score(score)

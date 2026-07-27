@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b2fwuioiu75ic"]
+
+[ext_resource type="Script" uid="uid://dmrtm4nqlh1d4" path="res://snake_game/menus/start_screen.gd" id="1_vy12c"]
+
+[node name="StartScreen" type="CanvasLayer" unique_id=1040092776]
+script = ExtResource("1_vy12c")
+
+[node name="Panel" type="Panel" parent="." unique_id=1574556581]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=926030887]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=769269457]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=2041205070]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 72
+text = "Snake Game"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1743516659]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1614278091]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "HighScore: 0"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=630487680]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/GridContainer" unique_id=846246585]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/GridContainer" unique_id=203393401]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/GridContainer/QuitButton" to="." method="_on_quit_button_pressed"]
