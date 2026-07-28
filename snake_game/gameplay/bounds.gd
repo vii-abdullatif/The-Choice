@@ -1,6 +1,8 @@
 class_name Bounds
 extends Node2D
 
+const TILE_SIZE := 32
+
 @onready var upper_left: Marker2D = %UpperLeft
 @onready var lower_right: Marker2D = %LowerRight
 
@@ -11,12 +13,20 @@ var y_min : float
 
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_fit_to_viewport()
 	x_max = lower_right.position.x
 	x_min = upper_left.position.x
 	y_max = lower_right.position.y
 	y_min = upper_left.position.y
+
+func _fit_to_viewport() -> void:
+	var viewport_size = get_viewport_rect().size
+	var cols = int(ceil(viewport_size.x / TILE_SIZE))
+	var rows = int(ceil(viewport_size.y / TILE_SIZE))
+
+	upper_left.position = Vector2.ZERO
+	lower_right.position = Vector2(cols * TILE_SIZE, rows * TILE_SIZE)
 
 func wrap_vector(v : Vector2) -> Vector2:
 	if v.x > x_max:
@@ -29,6 +39,5 @@ func wrap_vector(v : Vector2) -> Vector2:
 		return Vector2(v.x, y_max)
 	return v
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

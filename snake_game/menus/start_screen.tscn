@@ -60,14 +60,4 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/GridContainer" unique_id=203393401]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 30
-text = "Quit"
-
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/GridContainer/QuitButton" to="." method="_on_quit_button_pressed"]

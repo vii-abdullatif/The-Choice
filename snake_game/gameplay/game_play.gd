@@ -8,6 +8,7 @@ const pausemenu_scene: PackedScene = preload("res://snake_game/menus/pause_menu.
 @onready var bounds: Bounds = %Bounds
 @onready var spawner: Spawner = $Spawner as Spawner
 @onready var hud: HUD = $HUD
+@onready var tile_map: TileMapLayer = $TileMapLayer
 
 var pause_menu : PauseMenu
 var gameover_menu : GameOver
@@ -24,6 +25,7 @@ var score : int:
 		hud.update_score(value)
 
 func _ready() -> void:
+	_generate_background_grid()
 	head.food_eaten.connect(_on_food_eaten)
 	head.collided_with_tail.connect(_on_tail_collided)
 	spawner.tail_added.connect(_on_tail_added)
@@ -32,6 +34,15 @@ func _ready() -> void:
 	snake_parts.push_back(head)
 	head.bonus_eaten.connect(_on_bonus_eaten)
 
+func _generate_background_grid() -> void:
+	var viewport_size = get_viewport_rect().size
+	var tile_size = Global.grid_size
+	var cols = int(viewport_size.x / tile_size)
+	var rows = int(viewport_size.y / tile_size)
+	tile_map.clear()
+	for x in range(cols):
+		for y in range(rows):
+			tile_map.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))  # source_id and atlas coords — match your tileset
 
 func _process(delta: float) -> void:
 	var new_dir : Vector2 = Vector2.ZERO
