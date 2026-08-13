@@ -1,0 +1,12 @@
+res://addons/godot_super-wakatime/api_key_prompt.tscn::a6988a5ba43d5aa92a08f216c1db28db::1784810111::res://.godot/exported/133200997/export-cd8705cb5e2533bd79c64579ac674dae-api_key_prompt.scn
+res://addons/godot_super-wakatime/counter.tscn::7f13ad35960e259f6de719f9785ce249::1784810111::res://.godot/exported/133200997/export-4af6c9115c1c285af5925fa1ce6a526e-counter.scn
+res://snake_game/gameplay/bonus.tscn::20bea1d6971aa6adec202ee084a1ec3a::1785159970::res://.godot/exported/133200997/export-ff5027809ff304e1a1d16a13ef1aa7ce-bonus.scn
+res://snake_game/gameplay/food.tscn::afbc90ccda47cf9d78e86541dbd1abd9::1785160072::res://.godot/exported/133200997/export-4d301c8881b801a2c73464aa3e59ee26-food.scn
+res://snake_game/gameplay/game_play.tscn::edbd6e1ae4f3f7d618019043bccddaa2::1785219215::res://.godot/exported/133200997/export-ca362c6459f11b480072b426b536a518-game_play.scn
+res://snake_game/gameplay/head.tscn::8a9198e1ad85b7932c60d8f5de95147b::1785075129::res://.godot/exported/133200997/export-f5d8725046e645158e7d1a25421abf5a-head.scn
+res://snake_game/gameplay/lives.tscn::97dd1d34a0d5bad7cf49ab2c3b70e4fc::1785156160::res://.godot/exported/133200997/export-adf7e86446ae08059399e913f60d3bd9-lives.scn
+res://snake_game/gameplay/tail.tscn::ade50423a4759a527ca48de35936d3fd::1785076585::res://.godot/exported/133200997/export-015d30bb3839cd21ba18ef764a4efb36-tail.scn
+res://snake_game/menus/game_over.tscn::69a673e419dfe83ad15137dfc3ef3b36::1785151018::res://.godot/exported/133200997/export-2b8183257096d0acc7e32b133dbe7863-game_over.scn
+res://snake_game/menus/hud.tscn::080f453a1a9a36b8dda437f85ba10c10::1785156563::res://.godot/exported/133200997/export-fb0e35e99b2ecee8e46e9bf7af6bbff8-hud.scn
+res://snake_game/menus/pause_menu.tscn::7a7e376d79497643ff859ae6c1006c95::1785150291::res://.godot/exported/133200997/export-4ef518c0b73be7f34f5ec1a17dc629ff-pause_menu.scn
+res://snake_game/menus/start_screen.tscn::820689e41b25b656f01b9bc5af242138::1785217067::res://.godot/exported/133200997/export-daa3206de97cb1a8001abf7b8ec97879-start_screen.scn

@@ -4,12 +4,18 @@ extends Node2D
 const gameover_scene: PackedScene = preload("res://snake_game/menus/game_over.tscn")
 const pausemenu_scene: PackedScene = preload("res://snake_game/menus/pause_menu.tscn")
 
+@export var life_cost : int
+@export var dash_cost: int
+@export var dash_duration: float
+
 @onready var head: Head = %Head as Head
 @onready var bounds: Bounds = %Bounds
 @onready var spawner: Spawner = $Spawner as Spawner
 @onready var hud: HUD = $HUD
 @onready var tile_map: TileMapLayer = $TileMapLayer
 
+var is_dashing : bool = false
+var dash_timer: float = 0.0
 var pause_menu : PauseMenu
 var gameover_menu : GameOver
 var time_between_moves : float = 1000.0
@@ -45,6 +51,10 @@ func _generate_background_grid() -> void:
 			tile_map.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))  # source_id and atlas coords — match your tileset
 
 func _process(delta: float) -> void:
+	if is_dashing:
+		dash_timer -= delta
+		if dash_timer <= 0:
+			is_dashing = false
 	var new_dir : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
 		new_dir = Vector2.UP
@@ -60,7 +70,10 @@ func _process(delta: float) -> void:
 		pause_game()
 
 func _physics_process(delta: float) -> void:
-	time_since_last_move += delta * speed
+	var current_speed = speed * (1.8 if is_dashing else 1.0)
+	if Input.is_action_pressed("ui_accept"):
+		current_speed *= 1.5
+	time_since_last_move += delta * current_speed
 	if time_since_last_move >= time_between_moves:
 		update_snake()
 		time_since_last_move = 0
@@ -71,9 +84,22 @@ func update_snake():
 	head.move_to(new_pos)
 	for i in range(1,snake_parts.size(),1):
 		snake_parts[i].move_to(snake_parts[i-1].last_position)
-		
-		
-	
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.is_echo():
+		if event.keycode == KEY_B:
+			buy_life()
+		elif event.is_action_pressed("ui_accept"):
+			start_dash()
+
+func start_dash() -> void:
+	if is_dashing:
+		return
+	if score >= dash_cost:
+		score -= dash_cost
+		is_dashing = true
+		dash_timer = dash_duration
+
 func _on_food_eaten():
 	spawner.call_deferred("spawn_food")
 	spawner.call_deferred("spawn_tail", snake_parts[snake_parts.size()-1].last_position)
@@ -86,6 +112,12 @@ func _on_bonus_eaten():
 	speed += 550
 	score += 5 
 
+func buy_life() -> void:
+	if Global.lives >= 3:
+		return
+	if score >= life_cost:
+		score -= life_cost
+		Global.lives += 1
 
 func _on_tail_added(tail: Tail):
 	snake_parts.push_back(tail)

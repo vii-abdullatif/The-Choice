@@ -1,0 +1,6 @@
+res://snake_game/gameplay/lives.tscn
+res://snake_game/gameplay/lives.gd
+res://snake_game/gameplay/game_play.gd
+res://snake_game/gameplay/game_play.tscn
+res://snake_game/gameplay/bounds.gd
+res://snake_game/menus/pause_menu.gd

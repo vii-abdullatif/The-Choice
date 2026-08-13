@@ -39,5 +39,5 @@ func wrap_vector(v : Vector2) -> Vector2:
 		return Vector2(v.x, y_max)
 	return v
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
