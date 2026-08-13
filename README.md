@@ -22,6 +22,8 @@ The game uses a grid-coordinate array in GDScript to drive movement. On each Tim
 ## Credits:
 * The fruits asset was created by @Gherwit
 * Followed this tutorial to build the base game: https://youtu.be/c7HQwxs5y8w?si=mTrMWSBDZxTYV2eE
+## What's new:
+* Added Power-Ups (Buy lost lives for 20 score points each(B-KEY), Speed-Up for 3 score points at a time (Space-KEY))
 
 ## Note:
 The game differs from the tutorial by adding 3 lives and special high-point fruits to give you extra chances and bigger scores.
